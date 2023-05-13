@@ -1,3 +1,8 @@
 # plotTools package
 
-This package includes a set of useful functions to plot the figures about analyzing multi-omics data
+This package includes a set of useful functions to plot the figures about analyzing multi-omics data.
+
+## Project multidimensional samples onto 2D space
+* plotMetaOn2D
+* plotMetaOnPCA
+* plot2D
