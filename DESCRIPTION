@@ -1,0 +1,20 @@
+Package: plotTools
+Type: Package
+Title: Tools for plotting figures about analysing multi-omics data
+Version: 0.1.0
+Authors@R: c(
+    person("Weiyang", "Tao", email = "weiyangtao1513@gmail.com", 
+        role = c("cre", "aut")))
+Description: This package includes a set of useful functions to plot the figures about analyzing multi-omics data
+License: GPL (>= 3)
+Encoding: UTF-8
+Imports: 
+    funcTools,
+    MASS,
+    ggside,
+    rlang,
+    ggplot2,
+    umap,
+    Rtsne
+LazyData: true
+RoxygenNote: 7.1.1
