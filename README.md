@@ -19,10 +19,13 @@ This package includes a set of useful functions to plot the figures about analyz
 ## Generate animation using image files
 * makeAnimation
 If you have an issue to install the package magick, make sure you have installed ImageMagick STL:
+
 On Ubuntu:
 `sudo apt-get install libmagick++-dev`
+
 On Fedora or CentOS/RHEL:
 `sudo yum install ImageMagick-c++-devel`
+
 On macOS:
 `brew install imagemagick@6`
 
