@@ -18,6 +18,7 @@ This package includes a set of useful functions to plot the figures about analyz
 
 ## Generate animation using image files
 * makeAnimation
+
 If you have an issue to install the package magick, make sure you have installed ImageMagick STL:
 
 On Ubuntu:
