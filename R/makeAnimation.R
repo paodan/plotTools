@@ -31,8 +31,9 @@
 #' }
 #'
 #' # Making the animation
-#' makeAnimation(path = paste0(folder, "/png2"), fps = 50,
+#' gif = makeAnimation(path = paste0(folder, "/png2"), fps = 50,
 #'               outputgif = paste0(folder, "/output.gif"))
+#' gif
 #'
 #' # Making the animation without compressing the images
 #' makeAnimation(path = paste0(folder, "/png2"), fps = 50,
