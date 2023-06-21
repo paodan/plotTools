@@ -1,3 +1,6 @@
+# Version: 0.1.2
+* Include makeAnimation, plotManhattan, plotVolcano, and screeplot functions
+
 # Version: 0.1.1
 * Include compareBoxplot function
 

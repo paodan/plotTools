@@ -1,7 +1,7 @@
 Package: plotTools
 Type: Package
 Title: Tools for plotting figures about analysing multi-omics data
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
     person("Weiyang", "Tao", email = "weiyangtao1513@gmail.com", 
         role = c("cre", "aut")))
@@ -16,6 +16,10 @@ Imports:
     ggplot2,
     umap,
     Rtsne,
-    ggpubr
+    ggpubr,
+    ggrepel,
+    reshape2,
+    magick,
+    gtools
 LazyData: true
 RoxygenNote: 7.1.1
