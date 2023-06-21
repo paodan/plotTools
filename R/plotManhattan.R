@@ -19,6 +19,7 @@
 #' @importFrom ggrepel geom_label_repel
 #' @import ggplot2
 #' @importFrom gtools mixedsort
+#' @importFrom funcTools sortDataFrame
 #' @examples
 #' \dontrun{
 #' res = data.frame(SNP = paste0("rs", 1:15000),
