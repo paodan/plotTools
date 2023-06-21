@@ -32,7 +32,7 @@ On macOS:
 
 
 ## Plot screeplot for PCA results
-* screeplot
+* screeplot2
 
 ## Manipulate aes in ggplot object
 * aes_add
