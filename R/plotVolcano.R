@@ -31,6 +31,7 @@
 #' plotVolcano(data2)
 #'
 #' ## tibble
+#' library(tibble)
 #' data3 = as_tibble(data)
 #' g = plotVolcano(data3)
 #' g
@@ -40,6 +41,7 @@
 #' g
 #'
 #' ## data.table
+#' library(data.table)
 #' data4 = as.data.table(data)
 #' plotVolcano(data4)
 #' }
