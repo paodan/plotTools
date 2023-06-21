@@ -7,10 +7,10 @@
 #' \dontrun{
 #' x = matrix(rnorm(10*20), nrow= 20)
 #' pca = prcomp(x)
-#' screeplot(pca)
+#' screeplot2(pca)
 #' }
 #'
-screeplot = function(pca){
+screeplot2 = function(pca){
   var_explained = pca$sdev^2 / sum(pca$sdev^2)*100
   gVar = melt(data.frame(Cumulative_Variance = cumsum(var_explained),
                          Variance = var_explained,
