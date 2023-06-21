@@ -30,7 +30,6 @@ On macOS:
 `brew install imagemagick@6`
 
 
-
 ## Plot screeplot for PCA results
 * screeplot
 
