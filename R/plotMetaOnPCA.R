@@ -39,7 +39,7 @@ plotMetaOnPCA = function(pca, meta, colorCol = NULL, shapeCol = NULL, sizeCol = 
   #
   plot2D(x = dat, meta = meta,
          colorCol = colorCol, shapeCol = shapeCol, sizeCol = sizeCol,
-         showSide = TRUE,
+         showSide = showSide,
          xlab = paste0("PC", PCs[1], " (", round(pctVar[PCs[1]],1), "%)"),
          ylab = paste0("PC", PCs[2], " (", round(pctVar[PCs[2]],1), "%)"))
 }
