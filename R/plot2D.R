@@ -38,7 +38,7 @@ plot2D = function(x, meta, colorCol = NULL, shapeCol = NULL, sizeCol = NULL,
   # classic plot :
   if(!is.null(colorCol)){
     ae = aes(x=X, y=Y, color=.data[[colorCol]])
-    showSide = is.factor(meta[[colorCol]]) || is.character(meta[[colorCol]]) && showSide
+    showSide = is.factor(meta[[colorCol]]) | is.character(meta[[colorCol]]) & showSide
   } else {
     # stop("colorCol must be provided")
     ae = aes(x=X, y=Y)
