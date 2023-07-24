@@ -13,8 +13,9 @@ This package includes a set of useful functions to plot the figures about analyz
 ## Plot manhattan plot for GWAS and DNA methylation results
 * plotManhattan
 
-## Compare values of different groups using boxplot
+## Compare values of different groups using boxplot/violin plot
 * compareBoxplot
+* plotExpViolin
 
 ## Generate animation using image files
 * makeAnimation
@@ -37,4 +38,5 @@ On macOS:
 ## Manipulate aes in ggplot object
 * aes_add
 
-
+## Plot pathway/GO terms
+* dotplot_text

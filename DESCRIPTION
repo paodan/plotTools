@@ -20,6 +20,7 @@ Imports:
     ggrepel,
     reshape2,
     magick,
-    gtools
+    gtools,
+    ggraph
 LazyData: true
 RoxygenNote: 7.1.1
