@@ -34,7 +34,7 @@
 #' @param dpi if saving, the resolution of the figure, the default is 300
 #' @param ... the data frame to be used to plot
 #' @import ggplot2
-#' @import ggpubr
+#' @rawNamespace import(ggpubr, except = theme_transparent)
 #' @export
 #' @examples
 #' \dontrun{
