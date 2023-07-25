@@ -1,3 +1,6 @@
+# Version: 0.1.5
+* Include geom_errorbar2 and add_flag functions
+
 # Version: 0.1.4
 * Include createExprData, dotplot_text, and plotExpViolin functions
 

@@ -40,3 +40,11 @@ On macOS:
 
 ## Plot pathway/GO terms
 * dotplot_text
+
+## Plot heatmap with repelled row labels
+* add_flag
+
+## Plot error bars
+* geom_errorbar2
+
+
