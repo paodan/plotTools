@@ -1,4 +1,5 @@
 #' Plot errorbar by providing error ranges
+#' @name geom_errorbar2
 #' @param mapping	Set of aesthetic mappings created by aes(). If specified and inherit.aes = TRUE (the default), it is combined with the default mapping at the top level of the plot. You must supply mapping if there is no plot mapping.
 #'
 #' @param data The data to be displayed in this layer. There are three options:
@@ -53,9 +54,9 @@
 #'     geom_errorbar2(aes(ymin = lower), errorbar_direction = "down", width = 0.2))
 #'
 #'
-#' ##
+#' ## plot error bar using stat_summary function
 #' df = ToothGrowth
-#' df$dose <- as.factor(df$dose)
+#' df$dose = as.factor(df$dose)
 #' p = ggplot(df, aes(x=dose, y=len)) +
 #'   geom_dotplot(binaxis='y', stackdir='center', binwidth = 1, dotsize = .5)
 #' p
@@ -66,18 +67,18 @@
 #'   stat_summary(fun.y=mean, geom="point", color="red")
 #'
 #' mean_se = function(x, na.rm = TRUE){
-#' if (na.rm)  x <- x[!is.na(x)]
-#' n <- length(x)
-#' if (n == 0)
-#'   return(c(y = NA, ymin = NA, ymax = NA))
-#' xbar <- sum(x)/n
-#' se <- sd(x)/sqrt(n)
-#' # the name of the elements in the following vector must be "y", "ymin", and "ymax".
-#' c(y = xbar, ymin = xbar - se, ymax = xbar + se)
+#'   if (na.rm)  x = x[!is.na(x)]
+#'   n = length(x)
+#'   if (n == 0)
+#'     return(c(y = NA, ymin = NA, ymax = NA))
+#'   xbar = sum(x)/n
+#'   se = sd(x)/sqrt(n)
+#'   # the name of the elements in the following vector must be "y", "ymin", and "ymax".
+#'   c(y = xbar, ymin = xbar - se, ymax = xbar + se)
 #' }
 #'
 #' p + stat_summary(fun.data=mean_se,
-#'                  geom="errorbar", color="red", width=0.2) +
+#'                  geom=GeomUperrorbar, color="red", width=0.2) +
 #'   stat_summary(fun.y=mean, geom="point", color="blue")
 #' }
 geom_errorbar2 <- function(mapping = NULL, data = NULL,
@@ -116,7 +117,8 @@ geom_errorbar2 <- function(mapping = NULL, data = NULL,
   )
 }
 
-
+#' @rdname geom_errorbar2
+#' @export
 GeomUperrorbar = ggproto("GeomUperrorbar", Geom,
                          default_aes = aes(colour = "black", linewidth = 0.5,
                                            linetype = 1, width = 0.5,
@@ -169,6 +171,8 @@ GeomUperrorbar = ggproto("GeomUperrorbar", Geom,
                          rename_size = TRUE)
 
 
+#' @rdname geom_errorbar2
+#' @export
 GeomDownerrorbar = ggproto("GeomDownerrorbar", Geom,
                            default_aes = aes(colour = "black", linewidth = 0.5,
                                              linetype = 1, width = 0.5,
