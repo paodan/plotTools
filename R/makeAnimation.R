@@ -53,7 +53,7 @@ makeAnimation = function(imgs, pattern = NULL, path = NULL, fps = 2,
 }
 
 
-makeAnimation.default = makeAnimation.character = function(imgs, pattern = NULL, path = NULL, fps = 2,
+makeAnimation.default = function(imgs, pattern = NULL, path = NULL, fps = 2,
                                  outputgif = "output.gif", optimize = TRUE, ...){
 
   factors100 = seq_len(100)[which(100 %% (seq_len(100)) == 0)]
@@ -85,6 +85,8 @@ makeAnimation.default = makeAnimation.character = function(imgs, pattern = NULL,
                           outputgif = outputgif, optimize = optimize, ...)
   return(invisible(res))
 }
+
+makeAnimation.default = makeAnimation.character
 
 "makeAnimation.magick-image" = function(imgs, pattern = NULL, path = NULL, fps = 2,
                                  outputgif = "output.gif", optimize = TRUE, ...){
