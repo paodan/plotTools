@@ -1,7 +1,7 @@
 Package: plotTools
 Type: Package
 Title: Tools for plotting figures about analysing multi-omics data
-Version: 0.1.5
+Version: 0.1.6
 Authors@R: c(
     person("Weiyang", "Tao", email = "weiyangtao1513@gmail.com", 
         role = c("cre", "aut")))
