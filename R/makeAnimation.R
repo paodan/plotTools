@@ -49,11 +49,31 @@
 #' @export
 makeAnimation = function(imgs, pattern = NULL, path = NULL, fps = 2,
                          outputgif = "output.gif", optimize = TRUE, ...){
-  UseMethod("makeAnimation")
+  if(missing(imgs)){
+    stopifnot(!is.null(path))
+    imgs = dir(path, pattern = pattern, full.names = T)
+    if(length(imgs) < 2){
+      stop("Number of imags is less than 2. Include more images.")
+    }
+  }
+  if(is.character(imgs)){
+    res = makeAnimationMethods.default(imgs = imgs, pattern = pattern, path = path, fps = fps,
+                                       outputgif = outputgif, optimize = optimize, ...)
+  } else {
+    res = makeAnimationMethods(imgs = imgs, pattern = pattern, path = path, fps = fps,
+                         outputgif = outputgif, optimize = optimize, ...)
+  }
+
+  return(invisible(res))
 }
 
 
-makeAnimation.default = function(imgs, pattern = NULL, path = NULL, fps = 2,
+makeAnimationMethods = function(imgs, pattern = NULL, path = NULL, fps = 2,
+                                outputgif = "output.gif", optimize = TRUE, ...){
+  UseMethod("makeAnimationMethods")
+}
+
+makeAnimationMethods.default = function(imgs, pattern = NULL, path = NULL, fps = 2,
                                  outputgif = "output.gif", optimize = TRUE, ...){
 
   factors100 = seq_len(100)[which(100 %% (seq_len(100)) == 0)]
@@ -86,9 +106,8 @@ makeAnimation.default = function(imgs, pattern = NULL, path = NULL, fps = 2,
   return(invisible(res))
 }
 
-makeAnimation.character = makeAnimation.default
 
-"makeAnimation.magick-image" = function(imgs, pattern = NULL, path = NULL, fps = 2,
+"makeAnimationMethods.magick-image" = function(imgs, pattern = NULL, path = NULL, fps = 2,
                                  outputgif = "output.gif", optimize = TRUE, ...){
 
   factors100 = seq_len(100)[which(100 %% (seq_len(100)) == 0)]

@@ -21,6 +21,7 @@ Imports:
     reshape2,
     magick,
     gtools,
-    ggraph
+    ggraph,
+    enrichplot
 LazyData: true
 RoxygenNote: 7.1.1
