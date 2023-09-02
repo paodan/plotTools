@@ -8,6 +8,7 @@
 #' @param outputgif output gif animation file
 #' @param optimize logical, optimize the gif animation by storing only the differences
 #' between frames. Input images must be exactly the same size. The default is TRUE.
+#' @param ... other parameters in `image_write` function from `magick` package.
 #' @importFrom gtools mixedsort
 #' @import magick
 #' @examples
@@ -33,7 +34,13 @@
 #' # Making the animation
 #' gif = makeAnimation(path = paste0(folder, "/png2"), fps = 50,
 #'               outputgif = paste0(folder, "/output.gif"))
-#' gif
+#' gif$img_animated
+#'
+#'
+#' # Making the animation just for changing some parameters
+#' gif2 = makeAnimation(imgs = gif$img_joined, fps = 50,
+#'               outputgif = paste0(folder, "/output_2.gif"))
+#' gif2$img_animated
 #'
 #' # Making the animation without compressing the images
 #' makeAnimation(path = paste0(folder, "/png2"), fps = 50,
@@ -41,7 +48,18 @@
 #' }
 #' @export
 makeAnimation = function(imgs, pattern = NULL, path = NULL, fps = 2,
-                         outputgif = "output.gif", optimize = TRUE){
+                         outputgif = "output.gif", optimize = TRUE, ...){
+  UseMethod("makeAnimation")
+}
+
+
+makeAnimation.default = function(imgs, pattern = NULL, path = NULL, fps = 2,
+                                 outputgif = "output.gif", optimize = TRUE, ...){
+
+  factors100 = seq_len(100)[which(100 %% (seq_len(100)) == 0)]
+  if(!fps %in% (factors100)){
+    stop("fps must be a factor of 100: ", paste0(factors100, collapse = ", "))
+  }
   dir.create(dirname(outputgif),F)
   if(missing(imgs)){
     stopifnot(!is.null(path))
@@ -62,11 +80,34 @@ makeAnimation = function(imgs, pattern = NULL, path = NULL, fps = 2,
   cat("\nJoining images together ...")
   img_joined <- image_join(img_list)
 
+
+  res = .processAnimation(img_joined, fps = fps,
+                          outputgif = outputgif, optimize = optimize, ...)
+  return(invisible(res))
+}
+
+"makeAnimation.magick-image" = function(imgs, pattern = NULL, path = NULL, fps = 2,
+                                 outputgif = "output.gif", optimize = TRUE, ...){
+
+  factors100 = seq_len(100)[which(100 %% (seq_len(100)) == 0)]
+  if(!fps %in% (factors100)){
+    stop("fps must be a factor of 100: ", paste0(factors100, collapse = ", "))
+  }
+  dir.create(dirname(outputgif),F)
+
+  res = .processAnimation(imgs, fps = fps,
+                    outputgif = outputgif, optimize = optimize, ...)
+  return(invisible(res))
+}
+
+.processAnimation = function(img_joined, fps = 2,
+                             outputgif = "output.gif", optimize = TRUE, ...){
   ## animate at fps frames per second
   img_animated <- image_animate(img_joined, fps = fps, optimize = optimize)
   cat("\tDone!\nOutput GIF animation ...")
 
   ## save to disk
-  image_write(image = img_animated, path = outputgif)
-  return(invisible(img_animated))
+  image_write(image = img_animated, path = outputgif, ...)
+  return(invisible(list(img_joined = img_joined,
+                        img_animated = img_animated)))
 }

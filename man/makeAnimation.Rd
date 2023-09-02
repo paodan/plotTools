@@ -10,7 +10,8 @@ makeAnimation(
   path = NULL,
   fps = 2,
   outputgif = "output.gif",
-  optimize = TRUE
+  optimize = TRUE,
+  ...
 )
 }
 \arguments{
@@ -28,6 +29,8 @@ is the same as the file name order}
 
 \item{optimize}{logical, optimize the gif animation by storing only the differences
 between frames. Input images must be exactly the same size. The default is TRUE.}
+
+\item{...}{other parameters in `image_write` function from `magick` package.}
 }
 \description{
 Make animation based on gif figures
@@ -55,7 +58,13 @@ for(mi in 1:nrow(data)){
 # Making the animation
 gif = makeAnimation(path = paste0(folder, "/png2"), fps = 50,
               outputgif = paste0(folder, "/output.gif"))
-gif
+gif$img_animated
+
+
+# Making the animation just for changing some parameters
+gif2 = makeAnimation(imgs = gif$img_joined, fps = 50,
+              outputgif = paste0(folder, "/output_2.gif"))
+gif2$img_animated
 
 # Making the animation without compressing the images
 makeAnimation(path = paste0(folder, "/png2"), fps = 50,
