@@ -86,7 +86,7 @@ makeAnimation.default = function(imgs, pattern = NULL, path = NULL, fps = 2,
   return(invisible(res))
 }
 
-makeAnimation.default = makeAnimation.character
+makeAnimation.character = makeAnimation.default
 
 "makeAnimation.magick-image" = function(imgs, pattern = NULL, path = NULL, fps = 2,
                                  outputgif = "output.gif", optimize = TRUE, ...){
