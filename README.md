@@ -2,6 +2,30 @@
 
 This package includes a set of useful functions to plot the figures about analyzing multi-omics data.
 
+
+## Installation
+Install the BiocManager and devtools
+
+```
+if(!require("BiocManager", quietly = T))
+  install.packages("BiocManager")
+  
+if(!require("devtools", quietly = T))
+  install.packages("devtools")
+```
+
+Install packages in Bioconductor 
+```
+BiocManager::install("enrichplot")
+```
+
+Install plotTools
+```
+devtools::install_github("paodan/plotTools")
+
+```
+
+
 ## Project multidimensional samples onto 2D space
 * plotMetaOn2D
 * plotMetaOnPCA

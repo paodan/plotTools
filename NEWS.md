@@ -1,6 +1,6 @@
 # Version: 0.1.7
-* Add biocViews: enrichplot
-* Add pheatmap
+* Add biocViews: GeneSetEnrichment, DifferentialExpression
+* Add pheatmap and enrichplot
 
 # Version: 0.1.6
 * Update makeAnimation function
