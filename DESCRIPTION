@@ -24,5 +24,7 @@ Imports:
     gtools,
     ggraph,
     pheatmap
+Suggests:
+    enrichplot
 LazyData: true
 RoxygenNote: 7.1.1
