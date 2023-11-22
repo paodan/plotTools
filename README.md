@@ -4,19 +4,11 @@ This package includes a set of useful functions to plot the figures about analyz
 
 
 ## Installation
-Install the BiocManager and devtools
+Install devtools
 
 ```
-if(!require("BiocManager", quietly = T))
-  install.packages("BiocManager")
-  
 if(!require("devtools", quietly = T))
   install.packages("devtools")
-```
-
-Install packages in Bioconductor 
-```
-BiocManager::install("enrichplot")
 ```
 
 Install plotTools
