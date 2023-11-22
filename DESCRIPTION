@@ -8,6 +8,8 @@ Authors@R: c(
 Description: This package includes a set of useful functions to plot the figures about analyzing multi-omics data
 License: GPL (>= 3)
 Encoding: UTF-8
+biocViews:
+    enrichplot
 Imports: 
     funcTools,
     MASS,
@@ -21,7 +23,6 @@ Imports:
     reshape2,
     magick,
     gtools,
-    ggraph,
-    enrichplot
+    ggraph
 LazyData: true
 RoxygenNote: 7.1.1
