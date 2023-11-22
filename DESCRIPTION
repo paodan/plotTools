@@ -8,8 +8,7 @@ Authors@R: c(
 Description: This package includes a set of useful functions to plot the figures about analyzing multi-omics data
 License: GPL (>= 3)
 Encoding: UTF-8
-biocViews:
-    enrichplot
+biocViews: enrichplot
 Imports: 
     funcTools,
     MASS,
