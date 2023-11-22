@@ -1,5 +1,6 @@
 # Version: 0.1.7
 * Add biocViews: enrichplot
+* Add pheatmap
 
 # Version: 0.1.6
 * Update makeAnimation function

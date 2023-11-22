@@ -23,6 +23,7 @@ Imports:
     reshape2,
     magick,
     gtools,
-    ggraph
+    ggraph,
+    pheatmap
 LazyData: true
 RoxygenNote: 7.1.1
