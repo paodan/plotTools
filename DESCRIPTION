@@ -1,7 +1,7 @@
 Package: plotTools
 Type: Package
 Title: Tools for plotting figures about analysing multi-omics data
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: c(
     person("Weiyang", "Tao", email = "weiyangtao1513@gmail.com", 
         role = c("cre", "aut")))
@@ -26,4 +26,4 @@ Imports:
     pheatmap,
     enrichplot
 LazyData: false
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
