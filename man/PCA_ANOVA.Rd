@@ -31,6 +31,12 @@ variance contributed by each principle component are returned.
 }
 \examples{
 \dontrun{
+expr = matrix(c(rnorm(100, 1, 1), rnorm(100, 2, 1)), ncol = 10,
+dimnames = list(paste0("g", 1:20), paste0("s", 1:10)))
+pd = data.frame(group = rep(c("A", "B"), each = 5),
+                batch = paste0("b", c(1,2,3,1,2,3,1,2,3,1)),
+                row.names = colnames(expr))
+PCA_ANOVA(expr, pd, Npcs = 3)
 p = PCA_ANOVA(expr, pd, Npcs = 10, factorTestMethod = "anova", scale. = TRUE)
 print(p)
 attr(p, "percent_variance")

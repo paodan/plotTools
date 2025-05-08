@@ -12,11 +12,18 @@
 #' @param scale. whether to scale the expr for PCA analysis
 #' @examples
 #' \dontrun{
+#' expr = matrix(c(rnorm(100, 1, 1), rnorm(100, 2, 1)), ncol = 10,
+#' dimnames = list(paste0("g", 1:20), paste0("s", 1:10)))
+#' pd = data.frame(group = rep(c("A", "B"), each = 5),
+#'                 batch = paste0("b", c(1,2,3,1,2,3,1,2,3,1)),
+#'                 row.names = colnames(expr))
+#' PCA_ANOVA(expr, pd, Npcs = 3)
 #' p = PCA_ANOVA(expr, pd, Npcs = 10, factorTestMethod = "anova", scale. = TRUE)
 #' print(p)
 #' attr(p, "percent_variance")
 #' }
 #'
+
 PCA_ANOVA = function (expr, pd, Npcs = NULL,
                       factorTestMethod = c("anova", "kruskal"),
                       scale. = TRUE) {
@@ -99,6 +106,9 @@ PCA_ANOVA = function (expr, pd, Npcs = NULL,
   pca.o <- prcomp(t(expr), scale. = scale.)
   if(is.null(Npcs)){
     rmt.o_dim <- EstDimRMTv2(expr)$dim
+    if(rmt.o_dim == 0){
+      stop("Estimated Npcs is 0, try to set a value > 1.")
+    }
     if (rmt.o_dim > 20)
       Npcs <- 20
     else Npcs <- rmt.o_dim
@@ -118,7 +128,7 @@ PCA_ANOVA = function (expr, pd, Npcs = NULL,
       }
     }
   }
-  percent_variance  = round(pca$sdev^2 / sum(pca$sdev^2) * 100, 1)[1:Npcs]
+  percent_variance  = round(pca.o$sdev^2 / sum(pca.o$sdev^2) * 100, 1)[1:Npcs]
   attr(pcaPV.m, "percent_variance") = percent_variance
   return(pcaPV.m)
 }
@@ -136,6 +146,13 @@ PCA_ANOVA = function (expr, pd, Npcs = NULL,
 #' \dontrun{
 #' # expr: expression data (each row is a gene, each column is a sample)
 #' # pd: phenodata (metadata), each row is a sample, each column is a clinical parameter
+#'
+#' expr = matrix(c(rnorm(100, 1, 1), rnorm(100, 2, 1)), ncol = 10,
+#' dimnames = list(paste0("g", 1:20), paste0("s", 1:10)))
+#' pd = data.frame(group = rep(c("A", "B"), each = 5),
+#'                 batch = paste0("b", c(1,2,3,1,2,3,1,2,3,1)),
+#'                 row.names = colnames(expr))
+#'
 #' p = PCA_ANOVA(expr, pd, Npcs = 10, factorTestMethod = "anova", scale. = TRUE)
 #' plotPCA_ANOVA_Pvalue(p)
 #' }
