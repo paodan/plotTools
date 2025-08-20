@@ -73,6 +73,8 @@ makeAnimationMethods = function(imgs, pattern = NULL, path = NULL, fps = 2,
   UseMethod("makeAnimationMethods")
 }
 
+
+#' @export
 makeAnimationMethods.default = function(imgs, pattern = NULL, path = NULL, fps = 2,
                                  outputgif = "output.gif", optimize = TRUE, ...){
 
@@ -107,6 +109,7 @@ makeAnimationMethods.default = function(imgs, pattern = NULL, path = NULL, fps =
 }
 
 
+#' @export
 "makeAnimationMethods.magick-image" = function(imgs, pattern = NULL, path = NULL, fps = 2,
                                  outputgif = "output.gif", optimize = TRUE, ...){
 
