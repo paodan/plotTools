@@ -15,6 +15,7 @@ plot2D_SummaryValue(
   mid = "white",
   high = "red",
   midpoint = 0,
+  legendName = z,
   title = z
 )
 }

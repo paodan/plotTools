@@ -51,6 +51,7 @@ plot2D_SummaryValue = function(data, x, y, z,
                                summaryFun = mean,
                                bins = 100,
                                low = "grey", mid = "white", high = "red", midpoint = 0,
+                               legendName = z,
                                title = z){
   stopifnot(is.data.frame(data))
   stopifnot(x %in% colnames(data))
@@ -59,7 +60,7 @@ plot2D_SummaryValue = function(data, x, y, z,
 
   ggplot(data, aes(x = .data[[x]], y = .data[[y]], z = .data[[z]])) +
     stat_summary_hex(fun = summaryFun, bins = bins) +
-    scale_fill_gradient2(low = low, mid = mid, high = high, midpoint = midpoint) +
+    scale_fill_gradient2(name = legendName, low = low, mid = mid, high = high, midpoint = midpoint) +
     theme_Publication()+
     ggtitle(title)
 }
