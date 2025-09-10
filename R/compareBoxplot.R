@@ -32,6 +32,11 @@
 #' @param height if saving, the height of the figure, the default is 6
 #' @param units  if saving, the unit of the figure, the default is "in"
 #' @param dpi if saving, the resolution of the figure, the default is 300
+#' @param expand For position scales on y axis, a vector of range expansion constants used
+#' to add some padding around the data to ensure that they are placed some distance
+#' away from the x axis. Use the convenience function expansion() to generate the
+#' values for the expand argument. The defaults are to expand the scale by 5% on
+#' the lower side and 10% on the upper side.
 #' @param ... the data frame to be used to plot
 #' @import ggplot2
 #' @rawNamespace import(ggpubr, except = theme_transparent)
@@ -51,14 +56,16 @@
 compareBoxplot = function(data, x, y, comparisons, color = "black",
                           facets = NULL, scales = "fixed", palette = "jco", legend = "none", add = "jitter",
                           title = NULL, method = "t.test", file = NULL,
-                          width = 6, height = 6, units = "in", dpi = 300, ...){
+                          width = 6, height = 6, units = "in", dpi = 300,
+                          expand = expansion(mult = c(0.05, 0.1)), ...){
   g = ggboxplot(data, x = x, y = y,
                 color = color, palette = palette, legend = legend,
                 add = add) +
     ggtitle(title) +
     theme(plot.title = element_text(hjust = 0.5))
   g = g +
-    stat_compare_means(comparisons = comparisons, method = method, ...)
+    stat_compare_means(comparisons = comparisons, method = method, ...)+
+    scale_y_continuous(expand = expand)
   if(!is.null(facets)){
     g = g+
       facet_wrap(facets, scales = scales)

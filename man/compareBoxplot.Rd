@@ -22,6 +22,7 @@ compareBoxplot(
   height = 6,
   units = "in",
   dpi = 300,
+  expand = expansion(mult = c(0.05, 0.1)),
   ...
 )
 }
@@ -75,6 +76,12 @@ such as ".png", ".pdf", ".tiff", etc.}
 \item{units}{if saving, the unit of the figure, the default is "in"}
 
 \item{dpi}{if saving, the resolution of the figure, the default is 300}
+
+\item{expand}{For position scales on y axis, a vector of range expansion constants used
+to add some padding around the data to ensure that they are placed some distance
+away from the x axis. Use the convenience function expansion() to generate the
+values for the expand argument. The defaults are to expand the scale by 5% on
+the lower side and 10% on the upper side.}
 
 \item{...}{the data frame to be used to plot}
 }
