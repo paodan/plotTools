@@ -1,4 +1,5 @@
 #' plot boxplot with comparisons between groups
+#'
 #' @param data the data frame to be used to plot
 #' @param x character indicating the variable on x axis
 #' @param y character indicating the variable on y axis
