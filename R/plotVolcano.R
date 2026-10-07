@@ -75,7 +75,7 @@ plotVolcano = function(data, log2fcColumn = "log2FC", pvalColumn = "p", averageC
     # g = ggplot(data, aes(vars(log2fcColumn), -log10(p), color = upDownSig))+
     geom_point(show.legend = FALSE)+
     theme_Publication()+
-    scale_colour_Publication(colourColor = c("grey", "grey", "blue", "red"))+
+    scale_colour_manual(values = c(`Non-sig_Down` = "grey", `Non-sig_Up` = "grey",  `Sig_Down` = "blue", `Sig_Up` = "red"))+
     geom_vline(xintercept = c(-log2fc, log2fc), linetype=3)+
     geom_hline(yintercept = -log10(p), linetype=3)+
     ylab("-log10(P)")
